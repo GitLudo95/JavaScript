@@ -1,0 +1,71 @@
+body {
+    background-image: url('default.jpg');
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: white;
+    text-shadow: 2px 2px 1px black;
+    font-family: "palatino Linotype", "Book Antiqua", serif;
+}
+
+#gameContainer {
+    background-color: rgba(29, 93, 13, 0.7);
+    box-shadow: 1px 1px 5px black;
+    padding: 50px;
+    border-radius: 50px;
+    position: absolute;
+}
+
+#titleContainer {
+    padding: 50px;
+    border-radius: 10px;
+    position: absolute;
+}
+p {
+    font-size: 20px;
+}
+h1 {
+    font-size: 40px;
+}
+h4 {
+    font-size: 20px;
+}
+#new-game-button, #hit-button, #stay-button {
+    display:inline-block;
+    padding:0.5em 1.2em;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.2em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:400;
+    font-size: 16px;
+    color:#FFFFFF;
+    background-color:#3369ff;
+    box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+    text-align:center;
+    position:relative;
+}
+a:link {
+    color: lightskyblue;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:visited {
+    color: lightskyblue;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: pink;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+}

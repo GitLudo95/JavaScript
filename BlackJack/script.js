@@ -4,7 +4,7 @@
 //
 
 // Card variables
-let suits = ['Hearts', 'Clubs', 'Diamonds', 'Spades'];
+let suits = ['\u2661', '\u2667', '\u2662', '\u2664'];
 let values = ['Ace', 'King', 'Queen', 'Jack',
               'Ten', 'Nine', 'Eight', 'Seven', 'Six',
               'Five', 'Four', 'Three', 'Two'];
@@ -24,7 +24,9 @@ let gameStarted = false,
     playerCards = [],
     dealerScore = 0,
     playerScore = 0,
-    deck = [];
+    deck = [],
+    playerCounter = 0,
+    dealerCounter = 0;
 
 hitButton.style.display = 'none';
 stayButton.style.display = 'none';
@@ -204,25 +206,58 @@ function showStatus() {
 updateScores();
 
 textArea.innerText =
-  'Dealer has:\n' +
+  'Dealer has:\n\n' +
   dealerCardString +
   '(score: ' + dealerScore + ')\n\n' +
   
-  'Player has: \n' +
+  'Player has: \n\n' +
   playerCardString +
   '(score: ' + playerScore + ')\n\n';
   
   if(gameOver) {
     if(playerWon) {
-      textArea.innerText += "YOU WIN!";
+      textArea.innerText += "YOU WIN! :)";
+      playerCounter ++;
     } 
     else if(playerTied) {
         textArea.innerText += "IT'S A TIE";
     } else {
-      textArea.innerText += "DEALER WINS";
+      textArea.innerText += "YOU LOST :(";
+      dealerCounter ++;
     }
+    textArea.innerText +=
+    '\n\n' +
+    'You won:\n ' + 
+    playerCounter + 
+    ' times\n';
+
+    textArea.innerText +=
+    'Dealer won:\n ' + 
+    dealerCounter + 
+    ' times\n';
+
     newGameButton.style.display = 'inline';
     hitButton.style.display = 'none';
     stayButton.style.display = 'none';
   }
 }
+function setPositionForgameInfo() {
+  let gameContainer = document.getElementById('gameContainer');
+  let gameContainerHeight = gameContainer.clientHeight;
+  let gameContainerWidth = gameContainer.clientWidth;
+
+  gameContainer.style.left = `calc(30% - ${gameContainerWidth/2}px)`;
+  gameContainer.style.top = `calc(23% - ${gameContainerHeight/1.3}px)`;
+  gameContainer.style.visibility = 'visible';
+}
+function setPositionForTitleInfo() {
+  let titleContainer = document.getElementById('titleContainer');
+  let titleContainerHeight = titleContainer.clientHeight;
+  let titleContainerWidth = titleContainer.clientWidth;
+
+  titleContainer.style.left = `calc(10% - ${titleContainerWidth/2}px)`;
+  titleContainer.style.top = `calc(23% - ${titleContainerHeight/1.3}px)`;
+  titleContainer.style.visibility = 'visible';
+}
+setPositionForgameInfo();
+setPositionForTitleInfo();
