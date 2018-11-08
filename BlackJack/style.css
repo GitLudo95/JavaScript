@@ -5,7 +5,7 @@ body {
     background-position: center center;
     color: white;
     text-shadow: 2px 2px 1px black;
-    font-family: "palatino Linotype", "Book Antiqua", serif;
+    font-family: "verdana", "Book Antiqua", serif;
 }
 
 #gameContainer {
@@ -14,6 +14,7 @@ body {
     padding: 50px;
     border-radius: 50px;
     position: absolute;
+    text-align: center;
 }
 
 #titleContainer {
@@ -21,11 +22,19 @@ body {
     border-radius: 10px;
     position: absolute;
 }
+#bankContainer {
+    background-color: rgba(38, 45, 70, 0.7);
+    box-shadow: 1px 1px 5px black;
+    padding: 50px;
+    border-radius: 10px;
+    position: absolute;
+    text-align: center;
+}
 p {
     font-size: 20px;
 }
 h1 {
-    font-size: 40px;
+    font-size: 50px;
 }
 h4 {
     font-size: 20px;
@@ -46,6 +55,7 @@ h4 {
     text-align:center;
     position:relative;
 }
+  
 a:link {
     color: lightskyblue;
     background-color: transparent;

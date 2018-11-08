@@ -1,0 +1,28 @@
+
+body {
+    background-image: url('default.jpg');
+    background-size: auto;
+    background-repeat: repeat;
+    background-position: center center;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#myForm {
+    background-color: rgba(22, 93, 187, 0.7);
+    box-shadow: 1px 1px 5px black;
+    padding: 50px;
+    border-radius: 50px;
+    position: absolute;
+}
+
+input {
+    display: inline-block;
+    float: right;
+  }
+
+select {
+    display: inline-block;
+    float: right;
+  }

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+      <title>Dag van vandaag</title>
+  </head>
+
+  <body>
+      <input id='dagKnop' type ="button" value="Welke dag is het vandaag" onclick= "toonDatum()">
+      <h3 id="dagRegel">Het is vandaag:</h3>
+      <h3 id="dagVanWeek"></h3>
+  </body>
+    <script language="javascript" >
+        function toonDatum() {
+            var datum = new Date();
+            var nummer = datum.getDay();
+
+            switch(nummer) {
+                case 0:
+                    dag = "Zondag";
+                    break;
+                case 1:
+                    dag = "Maandag";
+                    break;
+                case 2:
+                    dag = "Dinsdag";
+                    break;
+                case 3:
+                    dag = "Woensdag";
+                    break;
+                case 4:
+                    dag = "Donderdag";
+                    break;
+                case 5:
+                    dag = "Vrijdag";
+                    break;
+                case 6:
+                    dag = "Zaterdag";
+            }
+            dagVanWeek.innerHTML = dag;
+        }
+    </script>
+</html>

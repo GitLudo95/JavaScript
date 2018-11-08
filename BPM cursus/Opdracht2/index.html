@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+      <title>Rekenen</title>
+  </head>
+
+  <body>
+      <h1>Voer twee getallen in om op te tellen</h1><br>
+      Nummer 1: <input id="number1"><br>
+      Nummer 2: <input id="number2"><br>
+
+      <input id='optelKnop' type ="button" value="optellen" onclick= "optelSom()">
+    
+  </body>
+    <script language="javascript" >
+        function optelSom() {
+            var a = Math.round(Number(document.getElementById('number1').value));
+            var b = Math.round(Number(document.getElementById('number2').value));
+            try {
+                if(a == "" || b == "") throw "empty";
+                if(isNaN(a) || isNaN(b)) throw "not a number"
+            } catch (error) {
+                alert("Input is " + error);
+            }
+            alert(a+b);
+        }
+    </script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<title>Bereken het grootste getal</title>
+<body>
+    <h1>Voer drie getallen in om de grootste te berekenen</h1><br>
+    Nummer 1: <input id="number1">
+    Nummer 2: <input id="number2">
+    Nummer 3: <input id="number3"><br>
+
+    <br><input id='grootsteGetal' type ="button" value="bereken" onclick= "berekenGetal()"><br>
+
+    <p>
+        <label for="grootste">Grootste getal: </label>
+        <input type="text" name="grootste" id="grootste" />
+    </p>
+
+<script>
+    function berekenGetal() {
+        var a = Math.round(Number(document.getElementById('number1').value));
+        var b = Math.round(Number(document.getElementById('number2').value));
+        var c = Math.round(Number(document.getElementById('number3').value));
+            try {
+                if(a == "" || b == "" || c == "") throw "empty";
+                if(isNaN(a) || isNaN(b) || isNaN(c)) throw "not a number"
+            } catch (error) {
+                alert("Input is " + error);
+            }
+            if(a > b && a > c) {
+                document.getElementById('grootste').value = a;
+            } else if(b > a && b > c) {
+                document.getElementById('grootste').value = b;
+            } else if(c > a && c > b) {
+                document.getElementById('grootste').value = c;
+            }
+    }
+</script>
+
+</body>
+</html>

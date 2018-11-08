@@ -6,11 +6,12 @@
 // Card variables
 let suits = ['\u2661', '\u2667', '\u2662', '\u2664'];
 let values = ['Ace', 'King', 'Queen', 'Jack',
-              'Ten', 'Nine', 'Eight', 'Seven', 'Six',
-              'Five', 'Four', 'Three', 'Two'];
+              '10', '9', '8', '7', '6',
+              '5', '4', '3', '2'];
 
 // DOM variables               
 let textArea = document.getElementById('text-area'),
+    cashArea = document.getElementById('cash-area'),
     newGameButton = document.getElementById('new-game-button'),
     hitButton = document.getElementById('hit-button'),
     stayButton = document.getElementById('stay-button');
@@ -26,7 +27,8 @@ let gameStarted = false,
     playerScore = 0,
     deck = [],
     playerCounter = 0,
-    dealerCounter = 0;
+    dealerCounter = 0,
+    bankAccount = 5000;
 
 hitButton.style.display = 'none';
 stayButton.style.display = 'none';
@@ -97,21 +99,21 @@ function getCardNumericValue(card) {
   switch(card.value) {
     case 'Ace':
       return 1;
-    case 'Two':
+    case '2':
       return 2;
-    case 'Three':
+    case '3':
       return 3;
-    case 'Four':
+    case '4':
       return 4;
-    case 'Five':
+    case '5':
       return 5;
-    case 'Six':
+    case '6':
       return 6;
-    case 'Seven':
+    case '7':
       return 7;
-    case 'Eight':
+    case '8':
       return 8;
-    case 'Nine':
+    case '9':
       return 9;
     default:
       return 10;
@@ -146,8 +148,8 @@ function checkForEndOfGame() {
     if(gameOver) {
         // let dealer take cards
         while(dealerScore < playerScore
-                && playerScore <= 21
-                && dealerScore <= 21) {
+                && playerScore < 21
+                && dealerScore < 21) {
             dealerCards.push(getNextCard());
             updateScores();
         }
@@ -216,38 +218,54 @@ textArea.innerText =
   
   if(gameOver) {
     if(playerWon) {
-      textArea.innerText += "YOU WIN! :)";
+      textArea.innerText += "YOU WIN! + $1000 :)";
       playerCounter ++;
+      bankAccount += 1000;
     } 
     else if(playerTied) {
         textArea.innerText += "IT'S A TIE";
     } else {
-      textArea.innerText += "YOU LOST :(";
+      textArea.innerText += "YOU LOST. - $1000 :(";
       dealerCounter ++;
+      bankAccount += -1000;
     }
     textArea.innerText +=
     '\n\n' +
     'You won:\n ' + 
     playerCounter + 
-    ' times\n';
+    ' games\n';
 
     textArea.innerText +=
     'Dealer won:\n ' + 
     dealerCounter + 
-    ' times\n';
+    ' games\n';
 
+    if(bankAccount >= 0) {
+    cashArea.innerText =
+    'Balance: ' +
+    '$' + bankAccount;
+    } else {
+      cashArea.innerText =
+      'You are bankrupt' +
+      '\n reloading...';
+      setTimeout(function() {window.location.reload(true)}, 1000);
+    }
+    if(bankAccount < 0) {
+      newGameButton = 'none';
+    }
     newGameButton.style.display = 'inline';
     hitButton.style.display = 'none';
     stayButton.style.display = 'none';
   }
 }
+
 function setPositionForgameInfo() {
   let gameContainer = document.getElementById('gameContainer');
   let gameContainerHeight = gameContainer.clientHeight;
   let gameContainerWidth = gameContainer.clientWidth;
 
-  gameContainer.style.left = `calc(30% - ${gameContainerWidth/2}px)`;
-  gameContainer.style.top = `calc(23% - ${gameContainerHeight/1.3}px)`;
+  gameContainer.style.left = `calc(37% - ${gameContainerWidth/2}px)`;
+  gameContainer.style.top = `calc(27% - ${gameContainerHeight/1.3}px)`;
   gameContainer.style.visibility = 'visible';
 }
 function setPositionForTitleInfo() {
@@ -255,9 +273,19 @@ function setPositionForTitleInfo() {
   let titleContainerHeight = titleContainer.clientHeight;
   let titleContainerWidth = titleContainer.clientWidth;
 
-  titleContainer.style.left = `calc(10% - ${titleContainerWidth/2}px)`;
-  titleContainer.style.top = `calc(23% - ${titleContainerHeight/1.3}px)`;
+  titleContainer.style.left = `calc(12% - ${titleContainerWidth/2}px)`;
+  titleContainer.style.top = `calc(27% - ${titleContainerHeight/1.3}px)`;
   titleContainer.style.visibility = 'visible';
+}
+function setPositionForCashInfo() {
+  let bankContainer = document.getElementById('bankContainer');
+  let bankContainerHeight = bankContainer.clientHeight;
+  let bankContainerWidth = bankContainer.clientWidth;
+
+  bankContainer.style.left = `calc(11% - ${bankContainerWidth/2}px)`;
+  bankContainer.style.top = `calc(50% - ${bankContainerHeight/1.3}px)`;
+  bankContainer.style.visibility = 'visible';
 }
 setPositionForgameInfo();
 setPositionForTitleInfo();
+setPositionForCashInfo();

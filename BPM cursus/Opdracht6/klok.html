@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+      <title>Klok</title>
+  </head>
+
+  <body onload="startKlok()">
+
+    <p id="tijdFormat"></p>
+      
+  </body>
+    <script language="javascript" >
+        function startKlok() {
+            var datum = new Date();
+            var uur = datum.getHours();
+            var minuten = datum.getMinutes();
+            var seconden = datum.getSeconds();
+            if(uur < 10) {
+                uur = "0" + uur;
+            }
+            if(minuten < 10) {
+                minuten = "0" + minuten;
+            }
+            if(seconden < 10) {
+                seconden = "0" + seconden;
+            }
+            tijdFormat.innerHTML = uur + ":" + minuten + ":" + seconden;
+            tijd = setTimeout('startKlok()', 500);
+            }
+    </script>
+</html>

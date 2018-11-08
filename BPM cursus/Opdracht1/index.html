@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  </head>
+
+
+
+  <body>
+      <div id="myForm">
+          <form name="opdracht">
+            Waarde: 
+            <input id="invoer" type="value" value="">
+            <input id='knop1' type ="button" value="tonen" onclick= "showValue()">
+            <br>
+            <p id= "toonWaarde"></p>
+            </form>
+        </div>
+    
+  </body>
+  <script language="javascript" >
+        var waarde = document.getElementById('invoer').value;
+    
+        function showValue() {
+            waarde = document.getElementById('invoer').value;
+            toonWaarde.innerText = waarde;
+        }
+    </script>
+</html>
