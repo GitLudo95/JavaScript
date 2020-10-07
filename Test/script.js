@@ -1,8 +1,8 @@
 
 (function r() {
-  setTimeout(r, Math.random() * 10);
+  setTimeout(r, Math.random() * 1000);
   let el = document.createElement("div");
-  el.innerHTML = "<img src='kroket.jpg' class='thumb' />";
+  el.innerHTML = "<img src='shoutout.jpg' class='thumb' />";
   el.style.position = `absolute`;
   el.style.zIndex = 999999;
   

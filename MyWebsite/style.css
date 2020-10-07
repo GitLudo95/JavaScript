@@ -1,0 +1,64 @@
+body.home, body.resume, body.about, body.contact {
+  background-color: #cccccc;
+  background-position: absolute;
+  /* Center the image */ }
+
+body.home, body.resume {
+  background-image: url("homebackground.jpg"); }
+
+body.about, body.contact {
+  background-image: url("aboutbackground.jpg"); }
+
+.container {
+  height: 2em; }
+
+#inputFirstName, #inputLastName, #inputEmail #inputSubject {
+  width: 50%; }
+
+.card {
+  margin: auto;
+  width: 60%;
+  padding: 5px; }
+
+iframe {
+  display: block;
+  margin: auto; }
+
+h1, h2, .col-sm {
+  text-align: center;
+  text-shadow: 1px 1px black;
+  color: #cccccc; }
+
+h6 {
+  color: #cccccc; }
+
+.logo {
+  height: 1.5em;
+  width: 1.5em; }
+
+.row, .needs-validation {
+  background-color: rgba(45, 43, 56, 0.7);
+  box-shadow: 1px 1px 5px black;
+  padding: 30px;
+  border-radius: 30px;
+  position: center;
+  color: #cccccc; }
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+nav li {
+  display: inline-block; }
+nav a {
+  display: block;
+  padding: 6px 12px;
+  text-decoration: none; }
+
+/* On screens that are 600px wide or less, expand row box */
+@media screen and (max-width: 600px) {
+  .row {
+    float: none;
+    height: 100em; } }
+
+/*# sourceMappingURL=style.css.map */

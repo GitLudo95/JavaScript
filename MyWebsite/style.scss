@@ -1,0 +1,84 @@
+$white: #cccccc;
+$fieldWidth: 50%;
+
+%background {
+    background-color: $white;
+    background-position: absolute; /* Center the image */
+}
+
+body.home, body.resume {
+    @extend %background;
+    background-image: url("homebackground.jpg");
+}
+
+body.about, body.contact {
+    @extend %background;
+    background-image: url("aboutbackground.jpg");
+}
+
+.container {
+    height: 2em;
+}
+
+#inputFirstName, #inputLastName, #inputEmail #inputSubject {
+    width: $fieldWidth;
+}
+
+.card {
+    margin: auto;
+    width: 60%;
+    padding: 5px;
+}
+
+iframe {
+    display: block;
+    margin: auto;
+}
+
+h1, h2, .col-sm {
+    text-align: center;
+    text-shadow: 1px 1px black;
+    color: $white;
+}
+
+h6 {
+    color: $white;
+}
+
+.logo {
+    height: 1.5em;
+    width: 1.5em;
+}
+
+.row, .needs-validation {
+    background-color: rgba(45, 43, 56, 0.7);
+    box-shadow: 1px 1px 5px black;
+    padding: 30px;
+    border-radius: 30px;
+    position: center;
+    color: $white;
+}
+
+nav {
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+  
+    li { display: inline-block; }
+  
+    a {
+      display: block;
+      padding: 6px 12px;
+      text-decoration: none;
+    }
+  }
+
+/* On screens that are 600px wide or less, expand row box */
+@media screen and (max-width: 600px) {
+    .row {
+      float: none;
+      height: 100em;
+    }
+}
